@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload CSV File</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'csv_analysis/css/styles.css' %}">
+</head>
+<body>
+    <h1>Upload CSV File</h1>
+    <div class="mainwrap">
+        <div class="mainchild">
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+
+            <div>
+            <button type="submit">Upload</button>
+            </div>
+        </form>
+        </div>
+</div>
+</body>
+</html>
