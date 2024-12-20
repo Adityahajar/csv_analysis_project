@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'csv_analysis/css/styles.css' %}">
+</head>
+<body>
+    <h1>CSV Analysis Results</h1>
+    <h2>First Few Rows</h2>
+    {{ head|safe }}
+    
+    <h2>Summary Statistics</h2>
+    {{ description|safe }}
+    
+    <h2>Missing Values</h2>
+    <ul>
+    {% for key, value in missing_values.items %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+    
+    <h2>Plot</h2>
+    <img src="/{{ plot_path }}" alt="Plot">
+</body>
+</html>
